@@ -17,15 +17,16 @@ con.connect(function(error){
     else{
 
         console.log("Success");
-       // InsertData(con);
+       InsertData(con);
        // DeleteData(con)
-       UpdateData(con);
+       //UpdateData(con);
+        SelectData(con);
         
     }
 });
 
 
-//for insert
+//for Data insert
 
 function InsertData(con) {
 
@@ -72,6 +73,23 @@ function UpdateData(con) {
       console.log("Data Update Fail");
     } else {
       console.log("Data Update Success");
+    }
+  });
+}
+
+
+//for Data Select
+
+
+function SelectData(con) {
+  let SQLQuery ="SELECT * FROM `students_list` WHERE 1"
+     
+
+  con.query(SQLQuery, function (error,result) {
+    if (error) {
+      console.log("Data Select Fail");
+    } else {
+      console.log(result);
     }
   });
 }
