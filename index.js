@@ -17,8 +17,9 @@ con.connect(function(error){
     else{
 
         console.log("Success");
-        //InsertData(con);
-        DeleteData(con)
+       // InsertData(con);
+       // DeleteData(con)
+       UpdateData(con);
         
     }
 });
@@ -47,7 +48,7 @@ function InsertData(con) {
 
 function DeleteData(con) {
 
-    let SQLQuery = "DELETE FROM `students_list` WHERE `id` ='1'";
+    let SQLQuery = "DELETE FROM `students_list` WHERE `id` ='2'";
     
  con.query(SQLQuery, function (error) {
    if (error) {
@@ -56,4 +57,21 @@ function DeleteData(con) {
      console.log("Data Delete Success");
    }
  });
+}
+
+
+//for Data Update
+
+
+function UpdateData(con) {
+  let SQLQuery =
+    "UPDATE `students_list` SET   `phone`='554',`city`='Raj' WHERE `id` = '3'";
+
+  con.query(SQLQuery, function (error) {
+    if (error) {
+      console.log("Data Update Fail");
+    } else {
+      console.log("Data Update Success");
+    }
+  });
 }
